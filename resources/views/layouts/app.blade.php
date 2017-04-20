@@ -1,6 +1,8 @@
 <!DOCTYPE html>
+<!--suppress ALL -->
 <html lang="{{ config('app.locale') }}">
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,6 +21,8 @@
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
+
+    @yield('styles')
 </head>
 <body>
     <div id="app">
@@ -83,5 +87,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    @yield('scripts')
+    @yield('scripts2')
 </body>
 </html>

@@ -18,3 +18,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+route::get('allblogs','BlogController@index');
+route::get('createBlog','BlogController@create');
+route::post('/store','BlogController@store');
+route::get('edit/{id}','BlogController@edit');
+
+route::post('update/{id}','BlogController@update');
