@@ -24,3 +24,5 @@ route::post('/store','BlogController@store');
 route::get('edit/{id}','BlogController@edit');
 
 route::post('update/{id}','BlogController@update');
+Route::DELETE('/blog/delete/{id}', 'BlogController@destroy');
+

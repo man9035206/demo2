@@ -30,7 +30,7 @@
 
                             <div class="form-group">
                                 <label for="title">Tags</label>
-                                <select class="form-control" name="tags[]" multiple >
+                                <select class="form-control tags" name="tags[]" multiple >
                                     @foreach($tags as $tag)
                                     <option value="{{$tag->id}}">{{$tag->tags}}</option>
                                     @endforeach
@@ -52,7 +52,6 @@
 
 @section('styles')
     <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.3/summernote.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 @stop
 
 
@@ -63,14 +62,5 @@
         $(document).ready(function() {
             $('#content').summernote();
         });
-    </script>
-@stop
-
-@section('scripts2')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
-    <script type="text/javascript">
-        $(".tags").select2({
-
-        })
     </script>
 @stop

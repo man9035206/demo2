@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 @section('content')
     <div class="container">
@@ -30,15 +31,14 @@
 
                             <div class="form-group">
                                 <label for="title">Tags</label>
-                                <select class="form-control" name="tags[]" multiple >
+                                <select class="form-control tags" name="tags[]" multiple >
                                     @foreach($tags as $tag)
                                         <option value="{{$tag->id}}"
                                                 @foreach($blog->tags as $t)
                                                     @if($tag->id == $t->id)
                                                         selected
-                                                        @endif
-                                                    @endforeach
-
+                                                    @endif
+                                                @endforeach
                                         >{{$tag->tags}}</option>
                                     @endforeach
                                 </select>
@@ -59,25 +59,16 @@
 
 @section('styles')
     <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.3/summernote.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 @stop
 
 
 @section('scripts')
     <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.3/summernote.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
     <script>
         $(document).ready(function() {
             $('#content').summernote();
         });
     </script>
-@stop
 
-@section('scripts2')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
-    <script type="text/javascript">
-        $(".tags").select2({
-
-        })
-    </script>
 @stop
