@@ -24,6 +24,7 @@
 
     @yield('styles')
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 <body>
     <div id="app">
@@ -63,8 +64,12 @@
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
+
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
+                                        <a href="{{url('to')}}" >
+                                            TODO
+                                        </a>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -96,6 +101,7 @@
 
         })
     </script>
+
 @yield('ajaxScrit')
 </body>
 </html>

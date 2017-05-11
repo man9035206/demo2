@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Blog;
+use App\Option;
 use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -75,10 +76,10 @@ class BlogController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
         $tags = Tag::all();
-        $blog = Blog::findOrFail($id);
+        $blog = Blog::where('slug',$slug)->first();
         return view('blogs.edit', compact('blog', 'tags'));
     }
 
@@ -114,6 +115,33 @@ class BlogController extends Controller
             'success' => 'Record has been deleted successfully!'
         ]);
 
+    }
+    public function singleBlog($slug)
+    {
+        $singleBlog = Blog::where('slug',$slug)->first();
+        $nextBlog=Blog::where('id','>',$singleBlog->id)->min('id');
+        $prevBlog=Blog::where('id','<',$singleBlog->id)->max('id');
+        return view('blogs.single')
+                        ->with('singleBlog',$singleBlog)
+                        ->with('next',$nextBlog)
+                        ->with('prev',$prevBlog);
+    }
+    public function addelemnt()
+    {
+        return view('addelemnts');
+    }
+    public function storeoptions(Request $r)
+    {
+        $elements=$r->input('options');
+        /*dd($elements);*/
+        for ($i=0;$i<count($elements);$i++)
+        {
+            $ansers= new Option;
+            $ansers->options= $elements[$i];
+            $ansers->save();
+
+        }
+        return redirect()->back();
     }
 
 }

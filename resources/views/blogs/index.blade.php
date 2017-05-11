@@ -6,18 +6,18 @@
             <div class="">
                 @foreach($blogs as $blog)
                     <div class="">
-                        <h2 class="">{{$blog->title}}</h2>
+                        <h2 class=""><A href="{{url('singleBlog',$blog->slug)}}">{{$blog->title}}</A></h2>
                         <h3 class="">{!! $blog->content !!}</h3>
                         <h4>{{$blog->slug}}</h4>
                         <h3>Tags:
                             @foreach($blog->tags as $t)
-                                @unless($t->count() > 0)
+
                                 {{$t->tags}},
-                                @endunless
+
                             @endforeach
                         </h3>
                         <hr style="color: #72ffb3;">
-                        <a class="btn btn-info" href="{{url('edit',$blog->id)}}">Edit</a>
+                        <a class="btn btn-info" href="{{url('edit',$blog->slug)}}">Edit</a>
                        {{-- <form id="formDeleteBlog" action="AdminProductsController@destroy', $blog->id" method="delete">
                             <button type="submit" id="btnDeleteBlog" data-id="{{$blog->id}}"></button>
                         </form>--}}
