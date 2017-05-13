@@ -36,3 +36,17 @@ route::post('to','TodoController@store');
 route::post('delete','TodoController@del');
 route::post('editItem','TodoController@update');
 route::post('trashItem','TodoController@trash');
+
+Route::get('add-contact','ContactController@create');
+route::get('all-contacts',[
+    'uses' => 'ContactController@index',
+    'as' => 'contacts.index'
+]);
+route::post('store_contacts',[
+    'uses' => 'ContactController@store',
+    'as' => 'contacts.store'
+]);
+route::post('store_groups',[
+    'uses' => 'ContactController@storeGroup',
+    'as' => 'groups.store'
+]);

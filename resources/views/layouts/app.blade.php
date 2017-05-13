@@ -70,6 +70,9 @@
                                         <a href="{{url('to')}}" >
                                             TODO
                                         </a>
+                                        <a href="{{route('contacts.index')}}" >
+                                            Contacts
+                                        </a>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
