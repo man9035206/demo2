@@ -104,7 +104,8 @@
 
         })
     </script>
-
+    <script src="ajax_crud.js"></script>
+    <script src="ajax_dropdown.js"></script>
 @yield('ajaxScrit')
 </body>
 </html>

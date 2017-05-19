@@ -7,24 +7,27 @@
                 @foreach($blogs as $blog)
                     <div class="">
                         <h2 class=""><A href="{{url('singleBlog',$blog->slug)}}">{{$blog->title}}</A></h2>
-                        <h3 class="">{!! $blog->content !!}</h3>
+                        <h5 class="">{!! $blog->content !!}</h5>
                         <h4>{{$blog->slug}}</h4>
                         <h3>Tags:
                             @foreach($blog->tags as $t)
-
                                 {{$t->tags}},
-
                             @endforeach
                         </h3>
                         <hr style="color: #72ffb3;">
                         <a class="btn btn-info" href="{{url('edit',$blog->slug)}}">Edit</a>
-                       {{-- <form id="formDeleteBlog" action="AdminProductsController@destroy', $blog->id" method="delete">
-                            <button type="submit" id="btnDeleteBlog" data-id="{{$blog->id}}"></button>
-                        </form>--}}
                         <button class="btn btn-danger deleteBlog" data-id="{{ $blog->id }}" data-token="{{ csrf_token() }}" >Delete</button>
-                        <a href=""></a>
+                        <a class=" btn btn-success" id="reply">Reply</a>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-9 col-md-offset-0">
+                            <input type="text" class="form-control" id="addComment">
+                        </div>
+                    </div>
+                    <div class="comments">
 
                     </div>
+
                 @endforeach
             </div>
         </div>

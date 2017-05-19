@@ -50,3 +50,11 @@ route::post('store_groups',[
     'uses' => 'ContactController@storeGroup',
     'as' => 'groups.store'
 ]);
+
+
+Route::get('/ajax_crud','CrudController@index');
+Route::get('/ajax_dropdown','CategoryController@index');
+Route::get('/sub_cat','CategoryController@getSubcategory');
+
+
+route::post('/addItem','CrudController@store');
